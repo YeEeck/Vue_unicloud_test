@@ -12,7 +12,8 @@
       class="username_input"
       placeholder="密码"
     /><br /><br />
-    <button @click="reg">注册</button><br /><br />
+    <a-button type="primary" @click="reg">注册</a-button><br /><br />
+    <img v-if="loadingS" src="../assets/loading.gif" />
     <span v-bind:class="tipClass">{{ res }}</span>
   </div>
 </template>
@@ -20,29 +21,32 @@
 <script>
 import { PostTest } from "../network/Reg";
 
-
 export default {
   data() {
     return {
       username: "",
       password: "",
-      res: "waiting...",
+      res: "",
       tipClass: "normal_tip",
+      loadingS: false,
     };
   },
   methods: {
     reg() {
-      this.res = "waiting...";
+      this.res = "";
       this.tipClass = "normal_tip";
+      this.loadingS = true;
       PostTest({ username: this.username, password: this.password }).then(
         (res) => {
           console.log(res);
           if (res.data.res != undefined) {
             this.res = "注册成功";
             this.tipClass = "right_tip";
+            this.loadingS = false;
           } else {
             this.res = "用户已存在";
             this.tipClass = "error_tip";
+            this.loadingS = false;
           }
         }
       );
@@ -68,5 +72,12 @@ export default {
 .right_tip {
   color: #42b983;
   font-weight: bold;
+}
+
+input {
+  outline: none;
+  border-width: 1px;
+  border-radius: 10px;
+  padding-left: 1em;
 }
 </style>

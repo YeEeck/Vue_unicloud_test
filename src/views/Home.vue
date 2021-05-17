@@ -17,6 +17,7 @@ export default {
 <style>
 #nav {
   padding: 10px;
+  font-size: large;
 }
 
 #navin a {
