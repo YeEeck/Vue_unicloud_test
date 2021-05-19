@@ -1,5 +1,5 @@
 # project_test
-https://yeeeck.github.io/Vue_unicloud_test/#/home/login
+https://yeeeck.github.io/Vue_unicloud_test
 ## Project setup
 ```
 npm install
