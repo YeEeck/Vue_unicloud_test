@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div id="navin">
-      <router-link to="/home/login">Login</router-link> |
+      <router-link to="/home">Login</router-link> |
       <router-link to="/home/reg">Reg</router-link>
     </div>
     <router-view />

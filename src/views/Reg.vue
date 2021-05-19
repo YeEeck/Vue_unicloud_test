@@ -40,9 +40,12 @@ export default {
         (res) => {
           console.log(res);
           if (res.data.res != undefined) {
-            this.res = "注册成功";
+            this.res = "注册成功,正在跳转...";
             this.tipClass = "right_tip";
             this.loadingS = false;
+            setTimeout(() => {
+              this.$router.push("/home/login");
+            }, 1000);
           } else {
             this.res = "用户已存在";
             this.tipClass = "error_tip";
